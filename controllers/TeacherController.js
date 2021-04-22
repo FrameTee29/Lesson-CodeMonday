@@ -1,5 +1,4 @@
 import express from 'express';
-
 const teacherRouter = express.Router();
 
 teacherRouter.get("", (req, res, next) => {
