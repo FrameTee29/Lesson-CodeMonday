@@ -1,11 +1,8 @@
-import express from 'express';
-const teacherRouter = express.Router();
+const db = require("../models");
+const Tutorial = db.teacher;
+const Op = db.Sequelize.Op;
 
-teacherRouter.get("", (req, res, next) => {
-    return res.send("GET TAECHER")
-})
-teacherRouter.post("", (req, res, next) => {
-    return res.send("POST TEACHER")
-})
+exports.create = (req, res) => {
+    res.send("CREATE TEACHER")
+};
 
-export default teacherRouter;

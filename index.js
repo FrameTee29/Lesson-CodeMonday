@@ -1,16 +1,21 @@
 const express = require('express');
 const cors = require('cors');
-const TeacherController = require('./controllers/TeacherController.js')
-const CourseController = require('./controllers/CourseController.js')
+const bodyParser = require("body-parser");
+const db = require("./models/index.js");
+// db.sequelize.sync();
+db.sequelize.sync({ force: true }).then(() => {
+    console.log("Re-Sync db.");
+});
 const app = express();
 
 app.use(cors({ origin: `http://localhost:3000`, credentials: true }))
-app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
+const routes = require('./routes');
 
-app.use('/api/teacher', TeacherController)
-app.use('/api/course', CourseController)
-
+routes.TeacherRoute(app)
+routes.CourseRoute(app)
 
 app.get("/", (_, res) =>
     res.send("Lesson Server is running ✅ 🎉")
