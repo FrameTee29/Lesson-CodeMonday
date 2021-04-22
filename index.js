@@ -12,7 +12,7 @@ app.use(express.json());
 
 
 app.use('/api/teacher', TeacherController)
-app.use('/api/teacher', CourseController)
+app.use('/api/course', CourseController)
 
 
 app.get("/", (_, res) =>
