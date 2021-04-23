@@ -1,5 +1,6 @@
 const db = require("../models")
 const Course = db.course
+const Teacher = db.teacher
 const Op = db.Sequelize.Op
 
 exports.create = async (req, res) => {
@@ -19,4 +20,21 @@ exports.create = async (req, res) => {
     })
 }
 
-exports.findAll = async (req, res) => {}
+exports.findAll = async (req, res) => {
+  Course.findAll({
+    where: {},
+    include: [
+      {
+        model: Teacher,
+        as: "teacher",
+
+      }
+    ]
+  })
+    .then((data) => res.send(data))
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message
+      })
+    })
+}
