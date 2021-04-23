@@ -1,9 +1,9 @@
-module.exports = app => {
-    const course = require("../controllers/CourseController.js");
+module.exports = (app) => {
+  const course = require("../controllers/CourseController.js")
 
-    var router = require("express").Router();
+  var router = require("express").Router()
 
-    router.get("/", course.create);
+  router.post("/", course.create)
 
-    app.use('/api/course', router);
-};
+  app.use("/api/course", router)
+}
