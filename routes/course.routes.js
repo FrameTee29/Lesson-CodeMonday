@@ -4,6 +4,7 @@ module.exports = (app) => {
   var router = require("express").Router()
 
   router.post("/", course.create)
+  router.get("/", course.findAll)
 
   app.use("/api/course", router)
 }
