@@ -2,10 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require("body-parser");
 const db = require("./models/index.js");
-// db.sequelize.sync();
-db.sequelize.sync({ force: true }).then(() => {
-    console.log("Re-Sync db.");
-});
+db.sequelize.sync();
+// db.sequelize.sync({ force: true })
 const app = express();
 
 app.use(cors({ origin: `http://localhost:3000`, credentials: true }))
