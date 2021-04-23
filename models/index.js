@@ -22,4 +22,6 @@ db.sequelize = sequelize
 db.teacher = require("./teacher.model.js")(sequelize, Sequelize)
 db.course = require("./course.model.js")(sequelize, Sequelize)
 
+db.course.belongsTo(db.teacher, { foreignKey :'teacher_id'})
+
 module.exports = db
