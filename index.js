@@ -5,7 +5,7 @@ const routes = require("./routes")
 
 // Sync - Database
 const db = require("./models/index.js")
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync().then(() => {
   console.log("Re-Sync db.")
 })
 const app = express()

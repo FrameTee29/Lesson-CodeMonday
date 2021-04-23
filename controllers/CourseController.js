@@ -2,7 +2,7 @@ const db = require("../models")
 const Course = db.course
 const Op = db.Sequelize.Op
 
-exports.create = (req, res) => {
+exports.create = async (req, res) => {
   const { course_name, course_description, teacher_id } = req?.body
   const course = {
     course_name,
@@ -18,3 +18,5 @@ exports.create = (req, res) => {
       })
     })
 }
+
+exports.findAll = async (req, res) => {}
