@@ -1,11 +1,9 @@
-echo "STEP 1 : Delete image old verison"
-docker rmi -f frametee29/lesson:dev
+echo "STEP 1 : Pull Dockwer"
+docker-compose up -d
 
-echo "STEP 2 : Build new image"
-docker build -t frametee29/lesson:dev .
+echo "STEP 2 : Start project with Microsoft Edge"
+start msedge http://localhost:3000
 
-echo "STEP 3 : Push to dockerhub"
-docker push frametee29/lesson:dev
+echo "STEP 3 : Start project with Google chrome"
+start chrome http://localhost:3000
 
-echo "STEP 4 : Finish"
-start msedge https://hub.docker.com/?ref=login
