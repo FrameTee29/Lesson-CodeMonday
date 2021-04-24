@@ -10,3 +10,10 @@ services:
             - ./pgdata:/var/lib/postgres/data
         ports: 
             - '5432:5432'
+    
+    lesson:
+        image: frametee29/lesson:dev
+        restart: always
+        container_name: lesson
+        ports:
+            - '3000:3000'
