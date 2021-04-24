@@ -2,6 +2,7 @@ version: "3.7"
 services: 
     db:
         image: postgres
+        container_name: postgres
         environment: 
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: postgres
@@ -13,7 +14,12 @@ services:
     
     lesson:
         image: frametee29/lesson:dev
+        depends_on: db
         restart: always
         container_name: lesson
         ports:
             - '3000:3000'
+        environment:
+            DATABASE_URL: postgres://username:db@127.0.0.1:5432/lesson
+        volumes: 
+            - ./pgdata:/var/lib/postgres/data
