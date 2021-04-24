@@ -10,9 +10,6 @@ $ cd Lesson-CodeMonday
 
 - STEP 2 : Start project
 ```bash
-# Pull docker
-$ build.docker.sh
-
 # Run project
 $ build.api.sh
 ```
