@@ -1,4 +1,4 @@
-version: "3"
+version: "2"
 services:
   db:
     image: postgres
@@ -14,8 +14,8 @@ services:
 
   lesson:
     image: frametee29/lesson:dev
-    links:
-      - db
+    # links:
+    #   - db
     restart: always
     container_name: lesson
     ports:
