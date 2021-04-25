@@ -12,9 +12,10 @@ services:
     ports:
       - "5432:5432"
 
+
   lesson:
     image: frametee29/lesson:dev
-    depends_on:
+    links:
       - db
     restart: always
     container_name: lesson

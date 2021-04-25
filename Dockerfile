@@ -10,7 +10,8 @@ RUN npm install
 COPY . .
 
 RUN rm .env && \
-    cp .env.dev .env
+    cp .env.dev .env &&\
+    rm .env.dev
 
 EXPOSE 3000
 CMD [ "yarn", "start" ]
