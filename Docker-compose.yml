@@ -1,8 +1,9 @@
-version: "3.3"
+version: "3"
 services:
   db:
     image: postgres
     container_name: postgres
+    hostname: db
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -15,6 +16,7 @@ services:
   lesson:
     image: frametee29/lesson:dev
     restart: always
+    hostname: lesson
     container_name: lesson
     ports:
       - "3000:3000"
